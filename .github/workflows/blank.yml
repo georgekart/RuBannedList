@@ -15,24 +15,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  - name: Download GitHub Release
-  # You may pin to the exact commit or the version.
-  # uses: Legion2/download-release-action@68df3d242858e28a7e6d8b9838a3e6730cdfc422
-  uses: Legion2/download-release-action@v2.1.0
-  with: zapret-info/z-i
-    # The repository from where to download the files.
 
-    repository: 
-    # The version tag of the release
-    tag: dump.csv
-    # The file which should be downloaded.
-
-
-    file: # optional
-    # download directory
-    path: # optional, default is ./
-    # Github token to access private repositories
-    token: # optional
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
@@ -52,3 +35,16 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+      - name: Download Assets
+        # You may pin to the exact commit or the version.
+        # uses: i3h/download-release-asset@a987f9dc3559bd1024d7ed353b59c9d0bbb8ab61
+        uses: i3h/download-release-asset@v1.3.3
+        with:
+          # 
+          owner: zapret-info
+          # 
+          repo: z-i
+          # 
+          file: dump.csv
+
