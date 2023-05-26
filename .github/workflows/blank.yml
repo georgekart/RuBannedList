@@ -26,23 +26,25 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          
-      - name: Download a file
-        # You may pin to the exact commit or the version.
-        # uses: valitydev/action-download-file@7fb017bf38a45a6d420e5456e95f0b1ef966a20c
-        uses: valitydev/action-download-file@v1.0.6
+      - name: Setup Python
+        uses: actions/setup-python@v4.6.1
         with:
-          # URL to file
-          url: https://raw.githubusercontent.com/zapret-info/z-i/master/dump.csv
-          # Target path
-          target-path: / # optional, default is .
-
+          python-version: 3.11
+          
+      - name: Execute Py script
+        env:
+          banned: ${{secrets.BANNED}}
+        run: python main.py
+        
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
+          
+      - name: push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main           
