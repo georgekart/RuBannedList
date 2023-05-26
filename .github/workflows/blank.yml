@@ -42,7 +42,7 @@ jobs:
         uses: Minionguyjpro/Download-File-Action@v1
         with:
           # URL to download file from
-          url: https://raw.githubusercontent.com/zapret-info/z-i/master/dump.csv
+          url: https://downgit.github.io/#/home?url=https://github.com/zapret-info/z-i/blob/master/dump.csv
           # Path to store output file
           path: / # optional, default is /
           
