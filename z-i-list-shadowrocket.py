@@ -41,7 +41,7 @@ for i in range(0,len(du)):
 for i in range(0,len(iu)):
     iu[i]="IP-ASN,"+iu[i]+",PROXY"    
               
-with open('ruvpn.config', 'w') as f:
+with open('ruvpn.conf', 'w') as f:
     f.write("[General]\n")
     f.write("skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, captive.apple.com\n")
     f.write("dns-server = 1.1.1.1,1.0.0.1\n")
@@ -55,4 +55,4 @@ with open('ruvpn.config', 'w') as f:
     f.write("[Host]\n")
     f.write("localhost = 127.0.0.1\n")
                     
-#Writes rule list to ruvpn.config
+#Writes rule list to ruvpn.conf
