@@ -1,1 +1,1 @@
-This repository creates takes the list of domains and IPs that are banned in Russia and converts them into lists of banned IPs and domains (and subdomains), as well as rule sets for certain VPN/proxy applications.
+This repository creates takes the CSV list (https://github.com/zapret-info/z-i) of domains and IPs that are banned in Russia and converts them into lists of banned IPs and domains (and subdomains), as well as rule sets for certain VPN/proxy applications.
