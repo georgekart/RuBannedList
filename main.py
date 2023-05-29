@@ -35,8 +35,8 @@ def create_lists():
     iu=np.unique(IPsplit)
     #removes duplicates
 
-    du2=du
-    iu2=iu
+    du2=du.copy()
+    iu2=iu.copy()
 
     with open('domains.txt', 'w') as f:
         for line in du:
