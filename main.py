@@ -38,6 +38,9 @@ def create_lists():
     du2=du.copy()
     iu2=iu.copy()
 
+    du3=du.copy()
+    iu3=iu.copy()
+
     with open('domains.txt', 'w') as f:
         for line in du:
             f.write(f"{line}\n")
@@ -64,9 +67,18 @@ def create_lists():
                 du2[i]="DOMAIN-SUFFIX,"+du2[i][2:]+",PROXY"
             else:
                 du2[i]="DOMAIN,"+du2[i]+",PROXY"
+
+    for i in range(0,len(du3)):
+            if(du3[i][0]=="*" and du3[i][1]=="."):
+                du3[i]="DOMAIN-SUFFIX,"+du3[i][2:]
+            else:
+                du3[i]="DOMAIN,"+du3[i]
             
     for i in range(0,len(iu2)):
         iu2[i]="IP-ASN,"+iu2[i]+",PROXY"    
+
+    for i in range(0,len(iu3)):
+        iu3[i]="IP-ASN,"+iu3[i]+",PROXY" 
               
     with open('ruvpn.conf', 'w') as f:
         f.write("[General]\n")
@@ -81,6 +93,12 @@ def create_lists():
         f.write("FINAL,DIRECT\n")
         f.write("[Host]\n")
         f.write("localhost = 127.0.0.1\n")
+
+    with open('ruvpn', 'w') as f:
+        for line in du3:
+            f.write(f"{line}\n")
+        for line in iu3:
+            f.write(f"{line}\n")
             
     #Writes rule list to ruvpn.conf
     
