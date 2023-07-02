@@ -47,14 +47,21 @@ def create_lists():
             f.write(f"{line}\n")
     #Writes domains to domains.txt and IPs to IPs.txt
 
+    domainlist=[]
+
     for i in range(0,len(du)):
             if(du[i][0]=="*" and du[i][1]=="."):
                 du[i]=du[i][2:]
+                domainlist[i]=du[i][2:]
             else:
                 du[i]="full:"+du[i]
             
     with open('category-banned-ru', 'w') as f:
         for line in du:
+            f.write(f"{line}\n")
+
+    with open('banned-ru', 'w') as f:
+        for line in domainlist:
             f.write(f"{line}\n")
         
     #Writes banned domain list to category-banned-ru
