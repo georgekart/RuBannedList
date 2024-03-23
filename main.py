@@ -9,7 +9,7 @@ import os
 def create_lists():
     url = "https://raw.githubusercontent.com/zapret-info/z-i/master/dump.csv"
 
-    c=pd.read_csv(url,delimiter=";",encoding='windows-1251',skiprows=1,header=None)
+    c=pd.read_csv(url,delimiter=";",encoding='windows-1251',skiprows=1,header=None,usecols=[0,1])
     c = c.replace({np.nan:None})
     data=c.values.tolist()
 
