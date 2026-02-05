@@ -9,9 +9,9 @@ import urllib
 import gzip
 
 def create_lists():
-    urllib.request.urlretrieve("https://raw.githubusercontent.com/zapret-info/z-i/master/dump.csv.gz","dump.csv.gz")
-    with gzip.open('dump.csv.gz','rb') as dump:
-        c=pd.read_csv(dump,delimiter=";",encoding='windows-1251',skiprows=1,header=None,usecols=[0,1])
+    #urllib.request.urlretrieve("https://raw.githubusercontent.com/zapret-info/z-i/master/dump.csv.gz","dump.csv.gz")
+    #with gzip.open('dump.csv.gz','rb') as dump:
+    c=pd.read_csv(https://sourceforge.net/p/zapret-info/code/HEAD/tree/dump.csv,delimiter=";",encoding='windows-1251',skiprows=1,header=None,usecols=[0,1])
         
     c = c.replace({np.nan:None})
     data=c.values.tolist()
