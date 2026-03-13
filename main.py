@@ -29,12 +29,14 @@ def create_lists():
     dom=list(filter(None,domain))
     IPfull=list(filter(None,IPs))
     #removes the empty entries
+    domFiltered=dom.replace('"','')
+    #Filteres domains
     IPconc=" ".join([str(item) for item in IPfull])
     IPspaced=IPconc.replace('|',' ')
     IPsplit=IPspaced.split(' ')
     #adds IP entries with multiple addresses as an individual entry
 
-    du=np.unique(dom)
+    du=np.unique(domFiltered)
     iu=np.unique(IPsplit)
     #removes duplicates
 
