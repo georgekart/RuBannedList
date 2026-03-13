@@ -29,7 +29,7 @@ def create_lists():
     dom=list(filter(None,domain))
     IPfull=list(filter(None,IPs))
     #removes the empty entries
-    domFiltered=dom.replace('"','')
+    domFiltered=[doms.replace('"','') for doms in dom]
     #Filteres domains
     IPconc=" ".join([str(item) for item in IPfull])
     IPspaced=IPconc.replace('|',' ')
