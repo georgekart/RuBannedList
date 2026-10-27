@@ -1,8 +1,9 @@
 name: run main.py
 
 on:
-  schedule:
-    - cron: '0 */12 * * *' # Run 2 times daily
+  workflow_dispatch
+  #schedule:
+  #  - cron: '0 */12 * * *' # Run 2 times daily
 
 jobs:
   build:
